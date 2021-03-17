@@ -1,0 +1,29 @@
+
+
+.vistaLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.botonLogin {
+    height: 2em;
+    width: 18em;
+    margin-top: 1em;
+
+    background-color: lightskyblue;
+    border-radius: 0.3em;
+
+    transition: 0.2s;
+
+    color: black;
+
+}
+
+.botonLogin:hover {
+    background-color: lightyellow;
+
+    transition: 0.2s;
+}

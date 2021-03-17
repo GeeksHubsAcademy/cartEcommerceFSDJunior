@@ -1,0 +1,37 @@
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    height: 7em;
+
+    background-color: lightgray;
+}
+
+
+.boton {
+    width : 8em;
+    height: 1.5em;
+
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+
+    background-color: purple;
+    border-radius: 0.3em;
+
+    transition: 0.2s;
+}
+
+.name {
+    font-weight: bold;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+}
+
+.boton:hover{
+    background-color: lightpink;
+
+    transition: 0.2s;
+}

@@ -4,6 +4,7 @@ import {useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import './Header.css';
+import Cart from '../Cart/Cart';
 
 const Header = (props) => {
 
@@ -24,8 +25,8 @@ const Header = (props) => {
         return(
             <div className="header headerLogeado">
                 <div className="name">{props.user?.name}</div>
+                <div onClick={()=> takeMeToNext('buy')}><Cart/></div>
                 <div onClick={()=> takeMeToNext("products")} className="boton">PRODUCTOS</div>
-                {/* Importaremos el componente CARRITO */}
             </div>
         )
     }else{

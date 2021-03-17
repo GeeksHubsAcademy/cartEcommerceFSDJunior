@@ -2,6 +2,7 @@ import {ADD, REMOVE, CLEAN} from '../types/cartType.js';
 
 const initialState = {
     cart : [],
+    totalCart : 0
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -9,7 +10,8 @@ const cartReducer = (state = initialState, action) => {
         case ADD :
             return {
                 ...state,
-                cart : action.payload
+
+                cart: [...state.cart, action.payload]
             }
         
         case REMOVE : 

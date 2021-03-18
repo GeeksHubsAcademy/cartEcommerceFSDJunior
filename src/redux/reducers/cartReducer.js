@@ -1,4 +1,4 @@
-import {ADD, REMOVE, CLEAN} from '../types/cartType.js';
+import {ADD, REMOVE, CLEAN, TOTAL_CART} from '../types/cartType.js';
 
 const initialState = {
     cart : [],
@@ -24,6 +24,12 @@ const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cart : action.payload
+            }
+
+        case TOTAL_CART : 
+            return {
+                ...state,
+                totalCart : action.payload
             }
 
         default : 

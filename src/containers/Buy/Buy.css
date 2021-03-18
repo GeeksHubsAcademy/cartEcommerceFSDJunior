@@ -1,0 +1,22 @@
+
+.vistaBuy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.productsInChart {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.productFinalBuy {
+    margin: 1em;
+}
+
+.totalPrice {
+    margin-top: 2em;
+}

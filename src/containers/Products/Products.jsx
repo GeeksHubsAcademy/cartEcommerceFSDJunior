@@ -17,14 +17,14 @@ const Products = (props) => {
             datosProducto = {
                 nombre : "secador",
                 precio : 10,
-                imagen : "secador.jpg",
+                imagen : "img/secador.jpg",
                 enCarrito : 0
             }
         }else{
             datosProducto = {
                 nombre : "marshall",
                 precio : 2500,
-                imagen : "marshall.jpg",
+                imagen : "img/marshall.jcm.jpg",
                 enCarrito : 0
             }
         }

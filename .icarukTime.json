@@ -1,0 +1,15 @@
+{
+    "idleHeartbeats": 927,
+    "navigatingHeartbeats": 164,
+    "totalCodingHeartbeats": 1530,
+    "languageHeartbeats": {
+        "javascriptreact": 842,
+        "css": 163,
+        "javascript": 525
+    },
+    "fileHeartbeats": {
+        "src/containers/Buy/Buy.jsx": 842,
+        "src/containers/Buy/Buy.css": 163,
+        "src/redux/reducers/cartReducer.js": 525
+    }
+}

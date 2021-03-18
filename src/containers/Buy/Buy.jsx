@@ -2,15 +2,19 @@
 import React, {useEffect,useState} from 'react';
 
 import {connect} from 'react-redux';
-import { TOTAL_CART, CLEAN } from '../../redux/types/cartType';
+import { TOTAL_CART, CLEAN, EDIT } from '../../redux/types/cartType';
 
 import './Buy.css';
 
 const Buy = (props) => {
 
+    //UseEffect con array vacio homónimo al componenteDidMount()
+
     useEffect(()=>{
         calculaTotal();
     },[]);
+
+    //UseEffect con array vacio homónimo al componenteDidUpdate()
 
     useEffect(()=> {
         calculaTotal();
@@ -32,7 +36,7 @@ const Buy = (props) => {
         //para su fácil acceso
 
         props.dispatch({type: TOTAL_CART, payload: precioTotal });
-    }
+    };
 
     const emptyCart = () => {
         //vaciamos el carrito con un dispatch que igual a 0 el contenido
@@ -40,7 +44,36 @@ const Buy = (props) => {
         props.dispatch({type: CLEAN, payload: [] });
         
         
-    }
+    };
+
+    const variarCantidad = (operacion,producto) => {
+        if(operacion === "mas"){
+
+            //Incremento la cantidad y guardo en RDX
+		
+
+            props.dispatch({type: EDIT, 
+            
+                payload: {
+				nombre: producto.nombre,
+				nuevaCantidad: producto.enCarrito + 1
+                }
+			})
+
+        }else{
+
+            //Decremento la cantidad y guardo en RDX
+
+            props.dispatch({type: EDIT, 
+            
+                payload: {
+				nombre: producto.nombre,
+				nuevaCantidad: producto.enCarrito - 1
+                }
+			})
+
+        };
+    };
 
     return(
 
@@ -52,6 +85,10 @@ const Buy = (props) => {
                             <div >{y.name}</div>
                             <div ><img className="imgProduct" src={y.imagen}/></div>
                             <div >{y.precio}</div>
+                            <div className="botonesCarrito">
+                                <div onClick={()=> variarCantidad("mas",y)} className="botonCarrito">+</div>
+                                <div onClick={()=> variarCantidad("menos",y)} className="botonCarrito">-</div>
+                            </div>
                         </div>
                     )
                 })}

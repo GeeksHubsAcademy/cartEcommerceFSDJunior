@@ -1,4 +1,12 @@
 
+.vistaGeneralProducts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+
 .vistaProducts {
 
     display: flex;

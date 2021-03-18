@@ -1,11 +1,13 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {ADD} from '../../redux/types/cartType';
 import './Products.css';
 
 const Products = (props) => {
 
+    //HOOKS
+    const [msgError, setMsgError] = useState(''); 
 
     const addCart = (prod) => {
 
@@ -27,6 +29,14 @@ const Products = (props) => {
             }
         }
 
+        //comprobamos que el producto no esté en el carrito
+        for(let item of props.cart){
+            if(datosProducto.nombre === item.nombre){
+                setMsgError('Este producto ya ha sido añadido anteriormente');
+                return; 
+            }
+        }
+
         //sumamos un producto más al carrito 
         datosProducto.enCarrito = datosProducto.enCarrito + 1;
 
@@ -35,24 +45,32 @@ const Products = (props) => {
     }
 
     return(
-        <div className="vistaProducts">
-            <div className="cardProduct">
-                <div className="productName">SECADOR HAIRSTYLE 2000</div>
-                <div className="productPic"><img onClick={()=> addCart("secador")} className="imgProduct" src="img/secador.jpg"/></div>
-                <div className="productDesc">Secador barato de pelo</div>
-                <div className="productDesc">10€</div>
-                
+        <div className="vistaGeneralProducts">
+            <div className="vistaProducts">
+                <div className="cardProduct">
+                    <div className="productName">SECADOR HAIRSTYLE 2000</div>
+                    <div className="productPic"><img onClick={()=> addCart("secador")} className="imgProduct" src="img/secador.jpg"/></div>
+                    <div className="productDesc">Secador barato de pelo</div>
+                    <div className="productDesc">10€</div>
+
+                </div>
+                <div className="cardProduct">
+                    <div className="productName">MARSHALL JCM 800 2203</div>
+                    <div className="productPic"><img onClick={()=> addCart("marshall")} className="imgProduct" src="img/marshall.jcm.jpg"/></div>
+                    <div className="productDesc">Amplificador de guitarra</div>
+                    <div className="productDesc">2500€</div>
+                </div>
             </div>
-            <div className="cardProduct">
-                <div className="productName">MARSHALL JCM 800 2203</div>
-                <div className="productPic"><img onClick={()=> addCart("marshall")} className="imgProduct" src="img/marshall.jcm.jpg"/></div>
-                <div className="productDesc">Amplificador de guitarra</div>
-                <div className="productDesc">2500€</div>
-               
-            </div>
-            
+            <div>{msgError}</div>
         </div>
+        
     )
 }
 
-export default connect()(Products);
+const mapStateToProps = state => {
+    return {
+        cart : state.cartReducer.cart
+    }
+}
+
+export default connect(mapStateToProps)(Products);
